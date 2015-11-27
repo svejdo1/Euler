@@ -1,0 +1,1022 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Barbar.SymbolicMath</name>
+    </assembly>
+    <members>
+        <member name="T:Barbar.SymbolicMath.Add">
+            <summary>
+            Represent addition operation
+            </summary>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Add.#ctor">
+            <summary>
+            ctor
+            </summary>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Add.#ctor(Barbar.SymbolicMath.SymMathNode,Barbar.SymbolicMath.SymMathNode)">
+            <summary>
+            ctor
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Add.SymbolicEquality(Barbar.SymbolicMath.SymMathNode)">
+            <summary>
+            Returns true if this tree is equal to node tree
+            </summary>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Add.Simplify">
+            <summary>
+            Simplify current expression by one step (if possible)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Add.CanSimplify">
+            <summary>
+            True if current expression can be simplified
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Add.Clone(Barbar.SymbolicMath.SymMathNode,Barbar.SymbolicMath.SymMathNode)">
+            <summary>
+            Clones current node (deep-copy)
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Add.ToString">
+            <summary>
+            Dump node to string
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Add.Evaluate">
+            <summary>
+            Evaluates current expression tree and returns double
+            Beware - this can lead to inaccuracies 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Barbar.SymbolicMath.BinaryOperation">
+            <summary>
+            Basic abstract class for binary operations (i.e. operations that have two nodes)
+            </summary>
+        </member>
+        <member name="P:Barbar.SymbolicMath.BinaryOperation.A">
+            <summary>
+            First node
+            </summary>
+        </member>
+        <member name="P:Barbar.SymbolicMath.BinaryOperation.B">
+            <summary>
+            Second node
+            </summary>
+        </member>
+        <member name="M:Barbar.SymbolicMath.BinaryOperation.Clone(Barbar.SymbolicMath.SymMathNode,Barbar.SymbolicMath.SymMathNode)">
+            <summary>
+            Clones current node(deep-copy)
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.BinaryOperation.Clone">
+            <summary>
+            Clones current node (deep-copy)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.BinaryOperation.#ctor">
+            <summary>
+            ctor
+            </summary>
+        </member>
+        <member name="M:Barbar.SymbolicMath.BinaryOperation.#ctor(Barbar.SymbolicMath.SymMathNode,Barbar.SymbolicMath.SymMathNode)">
+            <summary>
+            ctor
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+        </member>
+        <member name="M:Barbar.SymbolicMath.BinaryOperation.#ctor(System.Int64,System.Int64)">
+            <summary>
+            ctor. Term.Factory has to be set otherwise exception is thrown
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+        </member>
+        <member name="M:Barbar.SymbolicMath.BinaryOperation.CanSimplify">
+            <summary>
+            Returns true if we can simplify either node A or node B
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.BinaryOperation.Simplify">
+            <summary>
+            Clones simplified tree of A and B
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.BinaryOperation.SymbolicEquality(Barbar.SymbolicMath.SymMathNode)">
+            <summary>
+            Returns true if A is symbolically equal to node.A and
+            B is symbolically equal to node.B
+            </summary>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.BinaryOperation.GetHashCode">
+            <summary>
+            Returns A.GetHashCode() ^ B.GetHashCode()
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.BinaryOperation.Equals(System.Object)">
+            <summary>
+            Compares binary operation
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Barbar.SymbolicMath.Division">
+            <summary>
+            Represent division operation
+            </summary>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Division.#ctor(Barbar.SymbolicMath.SymMathNode,Barbar.SymbolicMath.SymMathNode)">
+            <summary>
+            ctor
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Division.#ctor(System.Int64,System.Int64)">
+            <summary>
+            ctor. Term.Factory has to be set otherwise exception is thrown
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Division.Simplify">
+            <summary>
+            Simplify current expression by one step (if possible)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Division.CanSimplify">
+            <summary>
+            Simplify current expression by one step (if possible)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Division.Clone(Barbar.SymbolicMath.SymMathNode,Barbar.SymbolicMath.SymMathNode)">
+            <summary>
+            Clones current node (deep-copy)
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Division.ToString">
+            <summary>
+            Dump node to string
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Division.Evaluate">
+            <summary>
+            Evaluates current expression tree and returns double
+            Beware - this can lead to inaccuracies 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Division.Revert">
+            <summary>
+            Switch nominator and denominator
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Barbar.SymbolicMath.Extensions">
+            <summary>
+            Extensions
+            </summary>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Extensions.IfType``1(Barbar.SymbolicMath.SymMathNode,System.Func{``0,System.Boolean})">
+            <summary>
+            Returns ture if node is of type T and condition evaluate is satisfied
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="node"></param>
+            <param name="evaluate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Extensions.IsMinusOrNegativeTerm(Barbar.SymbolicMath.SymMathNode)">
+            <summary>
+            Returns true if tree is below zero
+            </summary>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Extensions.Descendands``2(Barbar.SymbolicMath.SymMathNode)">
+            <summary>
+            Returns true if node is T1 and node.A is T2 
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Barbar.SymbolicMath.ITermFactory">
+            <summary>
+            Factory for constructing generic term
+            </summary>
+        </member>
+        <member name="M:Barbar.SymbolicMath.ITermFactory.Create(System.Int64)">
+            <summary>
+            Create instance of term from long
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Barbar.SymbolicMath.Minus">
+            <summary>
+            Represent minus operation
+            </summary>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Minus.#ctor(Barbar.SymbolicMath.SymMathNode)">
+            <summary>
+            ctor
+            </summary>
+            <param name="a"></param>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Minus.CanSimplify">
+            <summary>
+            True if current expression can be simplified
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Minus.Evaluate">
+            <summary>
+            Evaluates current expression tree and returns double
+            Beware - this can lead to inaccuracies 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Minus.Simplify">
+            <summary>
+            Simplify current expression by one step (if possible)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Minus.ToString">
+            <summary>
+            Dump node to string
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Minus.Clone(Barbar.SymbolicMath.SymMathNode)">
+            <summary>
+            Clones current node (deep-copy)
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Barbar.SymbolicMath.Multiply">
+            <summary>
+            Represent multiplication
+            </summary>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Multiply.#ctor(Barbar.SymbolicMath.SymMathNode,Barbar.SymbolicMath.SymMathNode)">
+            <summary>
+            ctor
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Multiply.SymbolicEquality(Barbar.SymbolicMath.SymMathNode)">
+            <summary>
+            Returns true if this tree is equal to node tree
+            </summary>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Multiply.Simplify">
+            <summary>
+            Simplify current expression by one step (if possible)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Multiply.CanSimplify">
+            <summary>
+            True if current expression can be simplified
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Multiply.Clone(Barbar.SymbolicMath.SymMathNode,Barbar.SymbolicMath.SymMathNode)">
+            <summary>
+            Clones current node (deep-copy)
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Multiply.ToString">
+            <summary>
+            Dump node to string
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Multiply.Evaluate">
+            <summary>
+            Evaluates current expression tree and returns double
+            Beware - this can lead to inaccuracies 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Barbar.SymbolicMath.SquareRoot">
+            <summary>
+            Represent square root
+            </summary>
+        </member>
+        <member name="M:Barbar.SymbolicMath.SquareRoot.#ctor(Barbar.SymbolicMath.SymMathNode)">
+            <summary>
+            ctor
+            </summary>
+            <param name="a"></param>
+        </member>
+        <member name="M:Barbar.SymbolicMath.SquareRoot.#ctor(System.Int64)">
+            <summary>
+            ctor. Term.Factory has to be set otherwise exception is thrown
+            </summary>
+            <param name="a"></param>
+        </member>
+        <member name="M:Barbar.SymbolicMath.SquareRoot.CanSimplify">
+            <summary>
+            True if current expression can be simplified
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.SquareRoot.Evaluate">
+            <summary>
+            Evaluates current expression tree and returns double
+            Beware - this can lead to inaccuracies 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.SquareRoot.Simplify">
+            <summary>
+            Simplify current expression by one step (if possible)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.SquareRoot.ToString">
+            <summary>
+            Dump node to string
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.SquareRoot.Clone(Barbar.SymbolicMath.SymMathNode)">
+            <summary>
+            Clones current node (deep-copy)
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Barbar.SymbolicMath.SymMathNode">
+            <summary>
+            Base abstract class for symbolic mathematic
+            </summary>
+        </member>
+        <member name="M:Barbar.SymbolicMath.SymMathNode.SymbolicEquality(Barbar.SymbolicMath.SymMathNode)">
+            <summary>
+            Returns true if this tree is equal to node tree
+            </summary>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.SymMathNode.Simplify">
+            <summary>
+            Simplify current expression by one step (if possible)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.SymMathNode.CanSimplify">
+            <summary>
+            True if current expression can be simplified
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.SymMathNode.Evaluate">
+            <summary>
+            Evaluates current expression tree and returns double
+            Beware - this can lead to inaccuracies 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.SymMathNode.Clone">
+            <summary>
+            Clones current node (deep-copy)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.SymMathNode.GetBaseForm">
+            <summary>
+            Reduces expression to basic form
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.SymMathNode.op_Addition(Barbar.SymbolicMath.SymMathNode,Barbar.SymbolicMath.SymMathNode)">
+            <summary>
+            Returns new Add(a,b)
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.SymMathNode.op_Multiply(Barbar.SymbolicMath.SymMathNode,Barbar.SymbolicMath.SymMathNode)">
+            <summary>
+            Returns new Multiply(a,b)
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.SymMathNode.op_Division(Barbar.SymbolicMath.SymMathNode,Barbar.SymbolicMath.SymMathNode)">
+            <summary>
+            Returns new Division(a,b)
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.SymMathNode.op_Subtraction(Barbar.SymbolicMath.SymMathNode,Barbar.SymbolicMath.SymMathNode)">
+            <summary>
+            Returns new Add(a,new Minus(b))
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Barbar.SymbolicMath.Term">
+            <summary>
+            Represent integer value. Class is abstact as can be implemented in two ways
+            T:TermInt64 (limited to min/max value of Int64) and T:TermBigInteger (no limit)
+            </summary>
+        </member>
+        <member name="F:Barbar.SymbolicMath.Term.Factory">
+            <summary>
+            Default factory for constructing terms. Initial value is null.
+            Set it to either TermInt64 or TermBigInteger
+            </summary>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Term.Sqrt">
+            <summary>
+            Returns square root
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Term.IsZero">
+            <summary>
+            True if term is zero
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Term.AsInt64">
+            <summary>
+            Converts term to Int64
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Term.IsOne">
+            <summary>
+            True if term is one
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Term.Negate">
+            <summary>
+            Return value equal to 0 - term
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Term.Gcd(Barbar.SymbolicMath.Term)">
+            <summary>
+            Computes greatest common divisor
+            </summary>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Term.Gcd(Barbar.SymbolicMath.Term,Barbar.SymbolicMath.Term)">
+            <summary>
+            Computes greates common divisor
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Term.CanSimplify">
+            <summary>
+            Returns always false as simple numeric value can't be simplified anymore
+            </summary>
+            <returns>Always false</returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Term.Simplify">
+            <summary>
+            Returns this as simple numeric value can't be simplified anymore
+            </summary>
+            <returns>this</returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Term.AddTerm(Barbar.SymbolicMath.Term)">
+            <summary>
+            Returns this + b
+            </summary>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Term.MultiplyTerm(Barbar.SymbolicMath.Term)">
+            <summary>
+            Returns this * b
+            </summary>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Term.ModTerm(Barbar.SymbolicMath.Term)">
+            <summary>
+            Returns this % b
+            </summary>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Term.DivTerm(Barbar.SymbolicMath.Term)">
+            <summary>
+            Returns this / b
+            </summary>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Term.IsNegative">
+            <summary>
+            Returns true if term is below zero
+            </summary>
+            <returns>True if term is below zero</returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Term.CompareTo(Barbar.SymbolicMath.Term)">
+            <summary>
+            Compares term to another term
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Term.Equals(System.Object)">
+            <summary>
+            Throws an exception - override in child class
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Term.GetHashCode">
+            <summary>
+            Always return 0 - do override in child class
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Term.op_Addition(Barbar.SymbolicMath.Term,Barbar.SymbolicMath.Term)">
+            <summary>
+            Returns a + b
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Term.op_Multiply(Barbar.SymbolicMath.Term,Barbar.SymbolicMath.Term)">
+            <summary>
+            Returns a * b
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Term.op_Modulus(Barbar.SymbolicMath.Term,Barbar.SymbolicMath.Term)">
+            <summary>
+            Returns a % b
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Term.op_Division(Barbar.SymbolicMath.Term,Barbar.SymbolicMath.Term)">
+            <summary>
+            Returns a / b
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Term.op_GreaterThan(Barbar.SymbolicMath.Term,Barbar.SymbolicMath.Term)">
+            <summary>
+            Returns true if a &gt; b
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Term.op_LessThan(Barbar.SymbolicMath.Term,Barbar.SymbolicMath.Term)">
+            <summary>
+            Returns true if a &lt; b
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Term.op_Equality(Barbar.SymbolicMath.Term,Barbar.SymbolicMath.Term)">
+            <summary>
+            Returns true if a == b
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Term.op_Inequality(Barbar.SymbolicMath.Term,Barbar.SymbolicMath.Term)">
+            <summary>
+            Returns true if a != b
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Barbar.SymbolicMath.TermBigInteger">
+            <summary>
+            Implements term with BigInteger as background storage
+            Do not mix TermInt64 with TermBigInteger - choose one type and use it
+            </summary>
+        </member>
+        <member name="F:Barbar.SymbolicMath.TermBigInteger.Factory">
+            <summary>
+            Factory for constructing terms (will return TermBigInteger)
+            </summary>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermBigInteger.#ctor(System.Int64)">
+            <summary>
+            ctor
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermBigInteger.#ctor(System.Numerics.BigInteger)">
+            <summary>
+            ctor
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermBigInteger.AsInt64">
+            <summary>
+            Returns value as Int64, beware - this can overflow for large values
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermBigInteger.Clone">
+            <summary>
+            Clon
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermBigInteger.CompareTo(Barbar.SymbolicMath.Term)">
+            <summary>
+            Compares term to another term
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermBigInteger.Evaluate">
+            <summary>
+            Evaluates current expression tree and returns double
+            Beware - this can lead to inaccuracies 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermBigInteger.Gcd(Barbar.SymbolicMath.Term)">
+            <summary>
+            Computes greatest common divisor
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermBigInteger.IsOne">
+            <summary>
+            True if term is one
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermBigInteger.IsZero">
+            <summary>
+            True if term is zero
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermBigInteger.Negate">
+            <summary>
+            Return value equal to 0 - term
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermBigInteger.Sqrt">
+            <summary>
+             Returns square root
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermBigInteger.SymbolicEquality(Barbar.SymbolicMath.SymMathNode)">
+            <summary>
+            Returns true if this tree is equal to node tree
+            </summary>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermBigInteger.AddTerm(Barbar.SymbolicMath.Term)">
+            <summary>
+            Returns this + b
+            </summary>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermBigInteger.DivTerm(Barbar.SymbolicMath.Term)">
+            <summary>
+            Returns this / b
+            </summary>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermBigInteger.ModTerm(Barbar.SymbolicMath.Term)">
+            <summary>
+            Returns this % b
+            </summary>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermBigInteger.MultiplyTerm(Barbar.SymbolicMath.Term)">
+            <summary>
+            Returns this * b
+            </summary>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermBigInteger.Equals(System.Object)">
+            <summary>
+            True if expression is equal to obj
+            </summary>
+            <param name="obj">TermBigInteger</param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermBigInteger.GetHashCode">
+            <summary>
+            Computes hashcode
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermBigInteger.IsNegative">
+            <summary>
+            True if value is below zero
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermBigInteger.ToString">
+            <summary>
+            Dump node to string
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Barbar.SymbolicMath.TermInt64">
+            <summary>
+            Implements term with long as background storage
+            Do not mix TermInt64 with TermBigInteger - choose one type and use it
+            </summary>
+        </member>
+        <member name="F:Barbar.SymbolicMath.TermInt64.Factory">
+            <summary>
+            Factory for constructing terms (will return TermInt64)
+            </summary>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermInt64.#ctor(System.Int64)">
+            <summary>
+            ctor
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermInt64.AsInt64">
+            <summary>
+            Returns value as Int64, this is guaranteed not to overflow
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermInt64.Clone">
+            <summary>
+            Clones current node (deep-copy)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermInt64.CompareTo(Barbar.SymbolicMath.Term)">
+            <summary>
+            Compares term to another term
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermInt64.Evaluate">
+            <summary>
+            Evaluates current expression tree and returns double
+            Beware - this can lead to inaccuracies 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermInt64.Gcd(Barbar.SymbolicMath.Term)">
+            <summary>
+            Computes greatest common divisor
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermInt64.IsOne">
+            <summary>
+            True if term is one
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermInt64.IsZero">
+            <summary>
+            True if term is zero
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermInt64.Negate">
+            <summary>
+            Return value equal to 0 - term
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermInt64.Sqrt">
+            <summary>
+            Returns square root
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermInt64.SymbolicEquality(Barbar.SymbolicMath.SymMathNode)">
+            <summary>
+            Returns true if this tree is equal to node tree
+            </summary>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermInt64.AddTerm(Barbar.SymbolicMath.Term)">
+            <summary>
+            Returns this + other
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermInt64.DivTerm(Barbar.SymbolicMath.Term)">
+            <summary>
+            Returns this / other
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermInt64.ModTerm(Barbar.SymbolicMath.Term)">
+            <summary>
+            Returns this % other
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermInt64.MultiplyTerm(Barbar.SymbolicMath.Term)">
+            <summary>
+            Returns this * other
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermInt64.Equals(System.Object)">
+            <summary>
+            True if this is equal to obj
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermInt64.GetHashCode">
+            <summary>
+            Returns hashcode
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermInt64.IsNegative">
+            <summary>
+            True if value is below zero
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.TermInt64.ToString">
+            <summary>
+            Dump node to string
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Barbar.SymbolicMath.UnaryOperation">
+            <summary>
+            Base abstract class for unary operations
+            </summary>
+        </member>
+        <member name="P:Barbar.SymbolicMath.UnaryOperation.A">
+            <summary>
+            Child node
+            </summary>
+        </member>
+        <member name="M:Barbar.SymbolicMath.UnaryOperation.#ctor">
+            <summary>
+            ctor
+            </summary>
+        </member>
+        <member name="M:Barbar.SymbolicMath.UnaryOperation.#ctor(Barbar.SymbolicMath.SymMathNode)">
+            <summary>
+            ctor
+            </summary>
+            <param name="a"></param>
+        </member>
+        <member name="M:Barbar.SymbolicMath.UnaryOperation.#ctor(System.Int64)">
+            <summary>
+            ctor. Term.Factory has to be set otherwise exception is thrown
+            </summary>
+            <param name="a"></param>
+        </member>
+        <member name="M:Barbar.SymbolicMath.UnaryOperation.Clone">
+            <summary>
+            Clones current node (deep-copy)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.UnaryOperation.Clone(Barbar.SymbolicMath.SymMathNode)">
+            <summary>
+            Clones current node (deep-copy)
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.UnaryOperation.CanSimplify">
+            <summary>
+            True if current expression can be simplified
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.UnaryOperation.Simplify">
+            <summary>
+             Simplify current expression by one step (if possible)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.UnaryOperation.SymbolicEquality(Barbar.SymbolicMath.SymMathNode)">
+            <summary>
+            Returns true if this tree is equal to node tree
+            </summary>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Barbar.SymbolicMath.Utilities.MathUtility">
+            <summary>
+            Mathematical utilites
+            </summary>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Utilities.MathUtility.Gcd(System.Int64,System.Int64)">
+            <summary>
+            Calculates greatest common divisor
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Utilities.MathUtility.SqrtAsContinuedFraction(System.Int32)">
+            <summary>
+            Gets factors of square root of number, expressed 
+            as continued fraction. Stops after recurring period is reached.
+            For example 2 yields { 1,2 }, 3 yields { 1, 1, 2 }, etc.
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Utilities.MathUtility.Totient(System.Int32,System.Int64@)">
+            <summary>
+            Calculates totien function (phi) from fist element to size
+            </summary>
+            <param name="size"></param>
+            <param name="sum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Barbar.SymbolicMath.Utilities.MathUtility.IsPrime(System.Int64)">
+            <summary>
+            Naive test if n is prime
+            </summary>
+            <param name="n"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

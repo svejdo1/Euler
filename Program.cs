@@ -10,7 +10,7 @@ namespace Barbar.Euler
     {
         static void Main(string[] args)
         {
-            new Problem077.Task().Run();
+            new Problem078.Task().Run();
         }
     }
 }

@@ -43,7 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dijskra.cs" />
+    <Compile Include="Point2D.cs" />
     <Compile Include="Problem077\Task.cs" />
+    <Compile Include="Problem078\Task.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -55,6 +58,9 @@
       <Project>{d4b02de2-861e-46c4-a016-f9c65b71b1e5}</Project>
       <Name>Barbar.SymbolicMath</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Problem078\matrix.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

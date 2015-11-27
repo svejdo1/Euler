@@ -41,3 +41,8 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+*.exe
+bin/Debug/Barbar.Euler.exe.config
+bin/Debug/Barbar.SymbolicMath.dll
+*.pdb
+obj/Debug/Barbar.Euler.csproj.FileListAbsolute.txt

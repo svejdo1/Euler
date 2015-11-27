@@ -20,7 +20,6 @@ namespace Barbar.Euler.Problem077
                 }
             }
 
-
             while (true)
             {
                 int[] ways = new int[target + 1];
