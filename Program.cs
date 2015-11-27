@@ -10,7 +10,9 @@ namespace Barbar.Euler
     {
         static void Main(string[] args)
         {
-            new Problem078.Task().Run();
+            Console.Out.WriteLine(new Problem075.Task().Run());
+            Console.Out.WriteLine("Press any key to continue...");
+            Console.ReadLine();
         }
     }
 }

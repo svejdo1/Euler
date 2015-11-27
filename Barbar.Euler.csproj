@@ -44,7 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dijskra.cs" />
+    <Compile Include="ITask.cs" />
     <Compile Include="Point2D.cs" />
+    <Compile Include="Problem075\Task.cs" />
     <Compile Include="Problem077\Task.cs" />
     <Compile Include="Problem078\Task.cs" />
     <Compile Include="Program.cs" />
@@ -62,6 +64,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Problem078\matrix.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

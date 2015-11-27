@@ -46,3 +46,4 @@ bin/Debug/Barbar.Euler.exe.config
 bin/Debug/Barbar.SymbolicMath.dll
 *.pdb
 obj/Debug/Barbar.Euler.csproj.FileListAbsolute.txt
+*.suo

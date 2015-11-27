@@ -3,7 +3,7 @@ using System;
 
 namespace Barbar.Euler.Problem077
 {
-    public class Task
+    public class Task : ITask
     {
         public string Run()
         {
