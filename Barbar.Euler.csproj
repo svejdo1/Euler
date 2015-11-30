@@ -44,13 +44,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DecimalCounter.cs" />
+    <Compile Include="Problem104\DecimalInteger.cs" />
     <Compile Include="Dijskra.cs" />
     <Compile Include="ITask.cs" />
     <Compile Include="Point2D.cs" />
     <Compile Include="Problem075\Task.cs" />
     <Compile Include="Problem077\Task.cs" />
     <Compile Include="Problem078\Task.cs" />
+    <Compile Include="Problem104\Task.cs" />
     <Compile Include="Problem145\Task.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
