@@ -5,27 +5,6 @@ namespace Barbar.Euler.Problem075
 {
     public class Task : ITask
     {
-        public struct Triangle
-        {
-            public int A, B, C;
-
-            public int L
-            {
-                get { return A + B + C; }
-            }
-
-            public override bool Equals(object obj)
-            {
-                var triangle = (Triangle)obj;
-                return triangle.A == A && triangle.B == B;
-            }
-
-            public override int GetHashCode()
-            {
-                return A ^ B;
-            }
-        }
-        
         const int LIMIT = 1500000;
 
         public string Run()
