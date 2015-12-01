@@ -92,38 +92,31 @@ namespace Barbar.Euler.Problem096
                 }
         }
 
-        public bool InjectNumber(int x, int y)
+        public bool IsValid(int x, int y, byte value)
         {
-            m_ScoreCalculated = false;
-            var numbers = new List<byte> { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            byte storage = m_Matrix[x, y];
+            m_Matrix[x, y] = value;
             byte[] buffer = new byte[9];
-            if (this[x, y] == 0)
+            m_Matrix.GetRow(y, buffer);
+            if (!Validate(buffer))
             {
-                foreach (var number in numbers)
-                {
-                    m_Matrix[x, y] = number;
-                    m_Matrix.GetRow(y, buffer);
-                    if (!Validate(buffer))
-                    {
-                        continue;
-                    }
-                    m_Matrix.GetColumn(x, buffer);
-                    if (!Validate(buffer))
-                    {
-                        continue;
-                    }
-                    CopyQuadrant(x, y, buffer);
-                    if (!Validate(buffer))
-                    {
-                        continue;
-                    }
-                    return true;
-                }
-                m_ScoreCalculated = true;
-                m_Score = int.MaxValue / 2;
+                m_Matrix[x, y] = storage;
                 return false;
             }
-            throw new InvalidOperationException();
+            m_Matrix.GetColumn(x, buffer);
+            if (!Validate(buffer))
+            {
+                m_Matrix[x, y] = storage;
+                return false;
+            }
+            CopyQuadrant(x, y, buffer);
+            if (!Validate(buffer))
+            {
+                m_Matrix[x, y] = storage;
+                return false;
+            }
+            m_Matrix[x, y] = storage;
+            return true;
         }
 
         private void CalculateScore()
