@@ -44,6 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Heap.cs" />
+    <Compile Include="MaxHeap.cs" />
+    <Compile Include="MinHeap.cs" />
+    <Compile Include="Problem096\Sudoku.cs" />
+    <Compile Include="Problem096\Task.cs" />
     <Compile Include="Problem104\DecimalInteger.cs" />
     <Compile Include="Dijskra.cs" />
     <Compile Include="ITask.cs" />
@@ -69,6 +74,9 @@
     <EmbeddedResource Include="Problem078\matrix.txt" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Problem096\sudoku.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
