@@ -47,6 +47,7 @@
     <Compile Include="Heap.cs" />
     <Compile Include="MaxHeap.cs" />
     <Compile Include="MinHeap.cs" />
+    <Compile Include="Problem078\Task.cs" />
     <Compile Include="Problem096\Sudoku.cs" />
     <Compile Include="Problem096\Task.cs" />
     <Compile Include="Problem104\DecimalInteger.cs" />
@@ -55,7 +56,7 @@
     <Compile Include="Point2D.cs" />
     <Compile Include="Problem075\Task.cs" />
     <Compile Include="Problem077\Task.cs" />
-    <Compile Include="Problem078\Task.cs" />
+    <Compile Include="Problem083\Task.cs" />
     <Compile Include="Problem104\Task.cs" />
     <Compile Include="Problem145\Task.cs" />
     <Compile Include="Program.cs" />
@@ -71,7 +72,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Problem078\matrix.txt" />
+    <EmbeddedResource Include="Problem083\matrix.txt" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
