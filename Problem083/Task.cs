@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace Barbar.Euler.Problem078
+namespace Barbar.Euler.Problem083
 {
     public class Task : ITask
     {
