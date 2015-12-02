@@ -1,12 +1,13 @@
 ﻿using Barbar.SymbolicMath.Utilities;
+using System;
 using System.Collections.Generic;
 
 namespace Barbar.Euler.Problem086
 {
     public class Task : ITask
     {
-
-        struct Cuboid
+        public const int LIMIT = 1000000;
+        public struct Cuboid
         {
             private short a, b, c;
 
@@ -50,75 +51,113 @@ namespace Barbar.Euler.Problem086
             }
         }
 
-        static long Triangles(int limit)
+        static int CuboidsCountOverflow(int dimensionLimit)
         {
-            long result = 0;
-            HashSet<Cuboid> uniques = new HashSet<Cuboid>();
-            var maxM = limit;
-            for (var m = 2L; m < maxM; m++)
+            var cuboids = new HashSet<Cuboid>();
+            var maxM = dimensionLimit;
+            for (var m = 2; m < maxM; m++)
             {
-                long nStart = (m & 1) == 1 ? 2L : 1L;
+                int nStart = (m & 1) == 1 ? 2 : 1;
                 for (var n = nStart; n < m; n += 2)
                 {
                     if (MathUtility.Gcd(n, m) == 1)
                     {
-                        long c0 = m * m + n * n;
-                        long b0 = m * m - n * n;
-                        long a0 = 2 * m * n;
-                        if (a0 < b0)
+                        int z0 = m * m + n * n;
+                        int y0 = m * m - n * n;
+                        int x0 = 2 * m * n;
+                        if (x0 < y0)
                         {
-                            var xchg = a0;
-                            a0 = b0;
-                            b0 = xchg;
+                            var xchg = x0;
+                            x0 = y0;
+                            y0 = xchg;
                         }
-                        if (b0 <= limit && a0 <= 2 * limit)
+                        if (!HandleTriplet((int)x0, (int)y0, (int)z0, dimensionLimit, cuboids))
                         {
-                            result += HandleTriangle(a0, b0, limit, uniques);
+                            return LIMIT;
                         }
-                        long a = a0, b = b0, c = c0;
-                        while (b <= limit && a <= 2 * limit)
+                        if (!HandleTriplet((int)y0, (int)x0, (int)z0, dimensionLimit, cuboids))
                         {
-                            result += HandleTriangle(a, b, limit, uniques);
-                            a += a0;
-                            b += b0;
-                            c += c0;
+                            return LIMIT;
+                        }
+                        long x = x0, y = y0, z = z0;
+                        while (y <= dimensionLimit || x <= dimensionLimit)
+                        {
+                            if (!HandleTriplet((int)x, (int)y, (int)z, dimensionLimit, cuboids))
+                            {
+                                return LIMIT;
+                            }
+                            if (!HandleTriplet((int)y, (int)x, (int)z, dimensionLimit, cuboids))
+                            {
+                                return LIMIT;
+                            }
+                            x += x0;
+                            y += y0;
+                            z += z0;
                         }
                     }
                 }
             }
-            return result;
+            return cuboids.Count;
         }
 
-        private static long HandleTriangle(long a, long b, int limit, HashSet<Cuboid> uniques)
+        private static bool HandleTriplet(int x, int y, int z, int dimensionLimit, HashSet<Cuboid> cuboids)
         {
-            int result = 0;
-            for (int j = 1; j < a; j++)
+            if (y > dimensionLimit)
             {
-                if (j <= limit && a - j <= limit)
+                return true;
+            }
+            long p1 = z * z;
+
+            for (int j = 1; j < x; j++)
+            {
+                if (j <= dimensionLimit && x - j <= dimensionLimit)
                 {
-                    int ta = j;
-                    int tb = (int)(a - j);
-                    int tc = (int)b;
-                    if (tb <= ta && tc <= ta )
+                    long a = j;
+                    long b = (x - j);
+                    if (a <= dimensionLimit && b <= dimensionLimit)
                     {
-                        var cuboid = new Cuboid((short)j, (short)(a - j), (short)b);
-                        if (!uniques.Contains(cuboid))
+                        //long p1 = (a + b) * (a + b) + y * y;
+                        long p2 = (a + y) * (a + y) + b * b;
+                        long p3 = (y + b) * (y + b) + a * a;
+                        if (p1 <= p2 && p1 <= p3)
                         {
-                            result++;
-                            uniques.Add(cuboid);
+                            var cuboid = new Cuboid((short)j, (short)(x - j), (short)y);
+                            if (!cuboids.Contains(cuboid))
+                            {
+                                cuboids.Add(cuboid);
+                                if (cuboids.Count >= LIMIT)
+                                {
+                                    return false;
+                                }
+                            }
                         }
-                    }
-                    else
-                    {
-                        //throw new Exception();
                     }
                 }
             }
-            return result;
+            return true;
         }
+
+        static int Newton()
+        {
+            int start = 100;
+            int end = 4000;
+            while(start < end - 1)
+            {
+                var half = (end - start) / 2 + start;
+                var halfValue = CuboidsCountOverflow(half);
+                if (halfValue < LIMIT)
+                {
+                    start = half;
+                    continue;
+                }
+                end = half;
+            }
+            return start;
+        }
+
         public string Run()
         {
-            return string.Empty;
+            return Convert.ToString(Newton() + 1);
         }
     }
 }
