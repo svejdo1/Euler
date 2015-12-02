@@ -50,6 +50,7 @@
     <Compile Include="Problem078\Task.cs" />
     <Compile Include="Problem096\Sudoku.cs" />
     <Compile Include="Problem096\Task.cs" />
+    <Compile Include="Problem100\Task.cs" />
     <Compile Include="Problem104\DecimalInteger.cs" />
     <Compile Include="Dijskra.cs" />
     <Compile Include="ITask.cs" />
