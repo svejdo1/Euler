@@ -48,6 +48,7 @@
     <Compile Include="MaxHeap.cs" />
     <Compile Include="MinHeap.cs" />
     <Compile Include="Problem078\Task.cs" />
+    <Compile Include="Problem086\Task.cs" />
     <Compile Include="Problem096\Sudoku.cs" />
     <Compile Include="Problem096\Task.cs" />
     <Compile Include="Problem100\Task.cs" />
