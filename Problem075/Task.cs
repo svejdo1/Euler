@@ -1,4 +1,4 @@
-﻿using Barbar.SymbolicMath.Utilities;
+﻿using Barbar.SymbolicMath.Policies;
 using System;
 
 namespace Barbar.Euler.Problem075
@@ -17,7 +17,7 @@ namespace Barbar.Euler.Problem075
                 long nStart = (m & 1) == 1 ? 2L : 1L;
                 for(var n = nStart; n < m; n += 2)
                 {
-                    if (MathUtility.Gcd(n, m) == 1)
+                    if (Int64Policy.Instance.Gcd(n, m) == 1)
                     {
                         long a = m * m + n * n;
                         long b = m * m - n * n;

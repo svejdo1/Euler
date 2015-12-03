@@ -1,4 +1,5 @@
-﻿using Barbar.SymbolicMath.Utilities;
+﻿using Barbar.SymbolicMath.Policies;
+using Barbar.SymbolicMath.Utilities;
 using System;
 using System.Collections.Generic;
 
@@ -60,7 +61,7 @@ namespace Barbar.Euler.Problem086
                 int nStart = (m & 1) == 1 ? 2 : 1;
                 for (var n = nStart; n < m; n += 2)
                 {
-                    if (MathUtility.Gcd(n, m) == 1)
+                    if (Int64Policy.Instance.Gcd(n, m) == 1)
                     {
                         int z0 = m * m + n * n;
                         int y0 = m * m - n * n;
