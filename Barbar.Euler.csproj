@@ -55,6 +55,7 @@
     <Compile Include="Problem093\Task.cs" />
     <Compile Include="Problem093\TermNode.cs" />
     <Compile Include="Problem093\Tree.cs" />
+    <Compile Include="Problem094\Task.cs" />
     <Compile Include="Problem096\Sudoku.cs" />
     <Compile Include="Problem096\Task.cs" />
     <Compile Include="Problem100\Task.cs" />

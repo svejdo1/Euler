@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,11 @@ namespace Barbar.Euler
     {
         static void Main(string[] args)
         {
-            Console.Out.WriteLine(new Problem091.Task().Run());
+            var watch = Stopwatch.StartNew();
+            string result = new Problem094.Task().Run();
+            watch.Stop();
+            Console.Out.WriteLine(result);
+            Console.Out.WriteLine(Convert.ToString(watch.Elapsed.TotalSeconds)+" s");
             Console.Out.WriteLine("Press any key to continue...");
             Console.ReadLine();
         }
